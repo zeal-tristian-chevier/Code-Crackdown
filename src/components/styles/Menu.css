@@ -1,0 +1,79 @@
+.info {
+    margin-top: 1.5rem;
+    color: rgb(212,214,219);
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.banner-img {
+    width: 655px;
+    margin-top: 2rem;
+}
+
+/*make key on menu spin on Y axis */
+.spinningKey{
+    color: rgb(91, 91, 91);
+    margin: 0px 5px 5px 0px;
+    font-size: 100px;
+    padding: 2.5rem;
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+    border-radius: 100px;
+  }
+  .circle {
+    background: linear-gradient(45deg,  rgb(203, 180, 10) 0%,rgb(247, 247, 247) 56%,rgb(171, 160, 0) 96%);
+    animation: spinYAxis 6s linear infinite;
+    border-radius: 125px;
+    margin: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+  }
+  .menu-btn {
+    height: 70px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+    border-radius: 25px;
+    color: rgb(234, 234, 234);
+    transition: all 0.5s ease;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    font-size: 1.25rem;
+    width: 20rem;
+    margin: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .menu-btn:hover {
+    transform: translateX(20px);
+    transition: all 0.5s ease-in-out;
+  }
+  .menu-btn span {
+    margin-left: 3.5rem;
+    font-size: 35px;
+    color: rgb(212,214,219);
+  }
+
+  @media screen and (max-width: 768px) {
+    .banner-img{
+      margin: 1rem;
+      width: 80% !important; 
+    }
+  }
+  @media screen and (max-width: 520px) {
+    .menu-btn {
+        width: 18rem;
+      }
+  }
+
+/* Animation for spinning key */
+  @keyframes spinYAxis {
+    0%{
+       transform: rotateY(0deg);
+      }
+   100%{
+       transform: rotateY(360deg);
+      }
+   }

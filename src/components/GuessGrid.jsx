@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import './styles/GuessGrid.css'
 const GuessGrid = (props) => {
         const [style, setStyle] = useState({
             guessPos1: '',
@@ -96,6 +96,7 @@ const GuessGrid = (props) => {
                 setPreviousGuess(guess)
                 handleGuess(guess)
                 setIsGuessed(true)
+                props.numGuesses()
             }else{
                 //shake the key if the validation is false
                 setPreviousGuess([])
@@ -118,9 +119,9 @@ const GuessGrid = (props) => {
                     {
                         hasWon ? 
                         
-                        <button  type="submit" className="fa-solid fa-lock-open btn btn-lg fs-2 gamebutton" style={{border: "none", color: "#58D68D"}}></button>
+                        <button id="unlock-btn" type="submit" className="fa-solid fa-lock-open btn btn-lg fs-2 game-btn" style={{border: "none", color: "#58D68D"}}></button>
                         :
-                        <button type="submit" className="fa-solid fa-lock btn btn-lg fs-1 gamebutton" disabled style={{border: "none"}}></button>
+                        <button type="submit" className="fa-solid fa-lock btn btn-lg fs-1 game-btn" disabled style={{border: "none"}}></button>
                     }
                     <div className='response'>
                     {
@@ -144,8 +145,11 @@ const GuessGrid = (props) => {
             )
         }
         {
+        //If player guesses the code, we need to add a restart button
         hasWon ? 
-        <h1>Score: </h1>
+        <form action="" className="d-flex align-items-center justify-content-center">
+            <button className="restart-btn">Restart</button>
+        </form>
         :
         //if the user hasn't guessed yet, we set the blocks to be clickable and able to set the guess
         isGuessed === false ?
@@ -160,12 +164,12 @@ const GuessGrid = (props) => {
                 style.guessPos1 && style.guessPos2 && style.guessPos3 && style.guessPos4 && isGuessed === false ? (
                     <>
                     <form onSubmit={handleSubmit}>
-                        <button type="submit" className={isValid ? 'fa btn btn-lg fs-1 fa-key gamebutton' : 'fa btn btn-lg fs-1 fa-key invalid gamebutton'} style={{border: "none", color: "#27AE60"}}></button>
+                        <button id="key-btn" type="submit" className={isValid ? 'fa btn btn-lg fs-1 fa-key game-btn' : 'fa btn btn-lg fs-1 fa-key invalid game-btn'}></button>
                     </form>
                     </>
                 )
                 :
-                <button type="submit" className="fa fa-lock btn btn-lg fs-1 gamebutton" style={{border: "none"}}></button>
+                <button type="submit" className="fa fa-lock btn btn-lg fs-1 game-btn"></button>
             }
             
             <div className='response'>
@@ -178,7 +182,7 @@ const GuessGrid = (props) => {
             </div>
         :
         //once a guess is submitted we have to re-render the guess grid so the user can guess again
-        <GuessGrid code={props.code} previousGuess={previousGuess} handleGameOver={props.handleGameOver}/>
+        <GuessGrid code={props.code} previousGuess={previousGuess} handleGameOver={props.handleGameOver} numGuesses={props.numGuesses}/>
         }
     
         </>

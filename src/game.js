@@ -35,6 +35,10 @@ export const translateCode = (code) => {
     }
     return translatedCode
 }
+export const calculateScore = (time, guesses) => {
+    let score = Math.round(1 / ((time * guesses)) * 1000) * 100
+    return score
+}
 // const validate = (guess, code) => {
 //     let validateGuess = ""
 //         if(guess.length != code.length){
@@ -94,3 +98,4 @@ export const translateCode = (code) => {
 //     console.log("Congrats you guessed " + translateCode(code))
 //     return
 // }
+
