@@ -15,6 +15,7 @@ const handleCreateUser = async (req, res) => {
     }
 }
 const handleGetAllUsers = async (req, res) => {
+    console.log("yes");
     try{
         const user = await getAllUsers()
         return res.json(user)

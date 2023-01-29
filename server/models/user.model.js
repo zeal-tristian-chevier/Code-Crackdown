@@ -11,14 +11,12 @@ const UserSchema = new mongoose.Schema(
             required: [true, "User name must be at least 5 characters"],
             minlength: [5],
             createIndexes: { unique: true },
-        }
-    },
-    {
+        },
         password: {
-            type: String,
-            required: [true, "Password must be at least 8 characters"],
-            minlength: [8]
-        }
+          type: String,
+          required: [true, "Password must be at least 8 characters"],
+          minlength: [8]
+      }
     },
     { timestamps: true}
 )
