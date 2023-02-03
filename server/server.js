@@ -13,14 +13,4 @@ app.use(cors())
 
 app.use('/users', userRouter)
 
-if (process.env.NODE_ENV === "production") {
-    console.log("PRODUCTION MODE ACTIVE");
-
-    app.use(express.static(path.join(__dirname, "/client/build")))
-    
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, './client/build','index.html'));
-    })
-}
-
 app.listen(port, () => console.log(`Listening on Port: ${port}`))

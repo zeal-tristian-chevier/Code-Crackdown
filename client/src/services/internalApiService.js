@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const http = axios.create({
-    baseURL: 'https://codecrackdown.com/'
+    baseURL: 'https://code-crackdown-api.onrender.com'
 })
 
 export const getAllUsers = async() => {
