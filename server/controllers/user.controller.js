@@ -1,21 +1,43 @@
+const { User } = require('../models/user.model')
+require("dotenv").config();
+
 const {
-    createUser,
+    registerUser,
+    loginUser,
     getAllUsers,
     getUserById,
     updateUserById,
     deleteUserById,
 } = require('../services/user.service')
 
-const handleCreateUser = async (req, res) => {
-    try{
-        const user = await createUser(req.body)
+const handleRegisterUser = async (req, res) => {
+    const {username, password} = req.body
+    try {
+        const user = await registerUser(username, password)
         return res.json(user)
     } catch (err){
-        return res.status(400).json(err)
+        return res.status(err.status || 500).json({
+            error: {
+                message: err.message || "Oops! Something went wrong."
+            }
+        });
     }
 }
+const handleLoginUser = async (req, res) => {
+    const {username, password} = req.body
+    try {
+        const user = await loginUser(username, password)
+        return res.json(user)
+     } catch (err){
+        return res.status(err.status || 500).json({
+            error: {
+                message: err.message || "Oops! Something went wrong."
+            }
+        });
+     }
+}
+    
 const handleGetAllUsers = async (req, res) => {
-    console.log("yes");
     try{
         const user = await getAllUsers()
         return res.json(user)
@@ -34,6 +56,7 @@ const handleGetUserById = async (req, res) => {
 const handleUpdateUserById = async (req, res) => {
     try{
         const user = await updateUserById(req.params.id, req.body)
+        console.log(user)
         return res.json(user)
     } catch (err){
         return res.status(400).json(err)
@@ -48,7 +71,8 @@ const handleDeleteUserById = async (req, res) => {
     }
 }
 module.exports = {
-    handleCreateUser,
+    handleRegisterUser,
+    handleLoginUser,
     handleGetAllUsers,
     handleGetUserById,
     handleDeleteUserById,

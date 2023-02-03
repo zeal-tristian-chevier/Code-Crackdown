@@ -1,0 +1,12 @@
+td {
+    padding: 1.5rem !important;
+}
+.table {
+    border-radius: 100px;
+    font-size: 20px;
+    width: 100%;
+}
+.leaderboard-title {
+    margin-top: 7rem;
+    margin-bottom: 6rem;
+}

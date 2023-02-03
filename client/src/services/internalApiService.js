@@ -12,9 +12,12 @@ export const getUserById = async(id) => {
     const res = await http.get(`/users/${id}`)
     return res.data
 }
-export const createUser = async(data) => {
-    console.log(data)
-    const res = await http.post(`/users/create`, data)
+export const registerUser = async(data) => {
+    const res = await http.post(`/users/register`, data)
+    return res.data
+}
+export const loginUser = async(data) => {
+    const res = await http.post(`/users/login`, data)
     return res.data
 }
 export const updateUserById = async(id, data) => {

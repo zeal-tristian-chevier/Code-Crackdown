@@ -1,0 +1,24 @@
+html {
+  height: 100%;
+  background-size: cover;
+  background: rgb(208,176,39);
+  background: linear-gradient(200deg, rgb(16, 38, 85) 0%, rgb(205, 175, 43) 150%);
+}
+
+body {
+  margin: 0;
+  /* font-family: 'Bebas Neue', cursive;
+  font-family: 'Noto Sans NKo', sans-serif; */
+  font-family: monospace, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: transparent;
+}
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+.App {
+  text-align: center;
+}

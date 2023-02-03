@@ -1,0 +1,11 @@
+.card-title {
+    color: black;
+}
+.help-card {
+    height: 100%;
+    background-color: rgb(203, 203, 203) !important;
+    padding-bottom: 4rem;
+}
+#back {
+    background-color: rgb(130, 130, 130) !important;
+}

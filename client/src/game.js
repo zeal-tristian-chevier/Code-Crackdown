@@ -35,67 +35,52 @@ export const translateCode = (code) => {
     }
     return translatedCode
 }
-export const calculateScore = (time, guesses) => {
-    let score = Math.round(1 / ((time * guesses)) * 1000) * 100
-    return score
+export const changeColor = (style) => {
+    switch(style){
+        case 'blue':
+            return 'white'
+        case 'white':
+            return 'green'
+        case 'green':
+            return 'red'
+        case 'red':
+            return 'yellow'
+        case 'yellow':
+            return 'orange'
+        case 'orange':
+            return 'blue'
+        default:
+            return 'blue'
+        }
 }
-// const validate = (guess, code) => {
-//     let validateGuess = ""
-//         if(guess.length != code.length){
-//             console.log("Guess was too long or too short, try again: ")
-//             return false
-//         }
-//         for(let i = 0; i < guess.length; i++){
-//             if(!colors.includes(guess[i])){
-//                 console.log("Please use proper color codes, try again: ")
-//                 return false
-//             }
-//             if(validateGuess.includes(guess[i])){
-//                 console.log("Please do not repeat a color, try again: ")
-//                 return false
-//             }
-//             validateGuess += guess[i]
-//         }
-//     return true
-// }
-// const game = (code) => {
-//     let tries = 10
-//     console.log("Guess the 4 digit code using the first characters from the following colors. (Blue(b), White(w), Green(g), Red(r), Yellow(y), and Orange(o)). ")
-//     console.log("Letters cannot be repeated in the guess or in the code. 10 TRIES!")
-//     let guess = prompt("Guess: ").trim()
-//     if(guess == "exit"){
-//         clearTimeout()
-//     }
-//     while(guess != code){
-//         let whites = 0
-//         let blacks = 0
-        
-//         while(validate(guess, code) == false){
-//             guess = prompt("Try Again: ")
-//         }
+export const checkGameStatus = (guess, code) => {
+    if(JSON.stringify(guess) === JSON.stringify(code)){
+        return true
+    }
+    let w = []
+    let b = []
 
-//         for(let i = 0; i < code.length; i++){
-//             if(guess.includes(code[i])){
-//                 whites++
-//             }
-//             if(guess[i] === code[i]){
-//                 blacks++
-//             }
-//         }
-//         //if we have blacks, we dont need to count them as whites as well
-//         whites = whites - blacks
-//         tries--
-//         console.log("Whites: " + whites)
-//         console.log("Blacks: " + blacks)
-//         if(tries === 0){
-//             console.log("Sorry, you didn't guess the code in 10 tries!")
-//             console.log("The code was " + code + ", " + translateCode(code))
-//             return
-//         }
-//         console.log("Tries left: " + tries)
-//         guess = prompt("Guess: ").trim()
-//     }
-//     console.log("Congrats you guessed " + translateCode(code))
-//     return
-// }
+    for(let i = 0; i < code.length; i++){
+            if(code.includes(guess[i])){
+                w.push("w")
+            }
+            if(guess[i] === code[i]){
+                b.push("b")
+            }
+        }
+        //if we have blacks, we dont need to count them as whites as well
+        for(let i = 0; i < b.length; i++){
+            w.pop()
+        }
+        let wandb = b.concat(w)
+        //add blank blocks to the response
+        while(wandb.length != 4){
+            wandb.push("")
+        }
+        //return the list of whites and blacks
+        return wandb
 
+}
+export const calculateScore = (time, guesses) => {
+    return Math.round(1 / ((time * guesses)) * 100) * 1000
+}

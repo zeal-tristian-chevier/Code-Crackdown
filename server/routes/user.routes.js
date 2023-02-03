@@ -1,7 +1,8 @@
 const express = require('express')
 
 const { 
-    handleCreateUser,
+    handleLoginUser,
+    handleRegisterUser,
     handleGetAllUsers,
     handleGetUserById,
     handleDeleteUserById,
@@ -11,7 +12,8 @@ const {
 const router = express.Router()
 
 router.get('/', handleGetAllUsers)
-router.post('/create', handleCreateUser)
+router.post('/register', handleRegisterUser)
+router.post("/login", handleLoginUser)
 
 
 router.get('/:id', handleGetUserById)

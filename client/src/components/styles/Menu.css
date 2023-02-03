@@ -1,5 +1,7 @@
+h1 {
+  font-size: 50px !important;
+}
 .info {
-    margin-top: 1.5rem;
     color: rgb(212,214,219);
 }
 .title {
@@ -7,13 +9,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
 }
 .banner-img {
     width: 655px;
     margin-top: 2rem;
 }
-
+.border {
+  border-color: rgba(211, 211, 127, 0.3) !important;
+}
 /*make key on menu spin on Y axis */
 .spinningKey{
     color: rgb(91, 91, 91);
@@ -45,10 +50,36 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    text-decoration: none;
   }
   .menu-btn:hover {
     transform: translateX(20px);
     transition: all 0.5s ease-in-out;
+  }
+    #dark1,
+  #dark2,
+  #light1 {
+    transition: all 0.5s ease;
+  }
+
+  #dark2 {
+    transform: translateX(-100%);
+    fill: rgb(0, 104, 0);
+  }
+
+  .menu-btn:hover #light1 {
+    transform: translateX(20%);
+    fill: rgb(0, 200, 0);
+  }
+
+  .menu-btn:hover #dark1 {
+    transform: translateX(40%);
+    opacity: 0;
+    fill: rgb(0, 104, 0);
+  }
+
+  .menu-btn:hover #dark2 {
+    transform: translateX(0%);
   }
   .menu-btn span {
     margin-left: 3.5rem;
@@ -66,7 +97,11 @@
     .menu-btn {
         width: 18rem;
       }
+      .border {
+        border-color: transparent !important;
+    }
   }
+  
 
 /* Animation for spinning key */
   @keyframes spinYAxis {

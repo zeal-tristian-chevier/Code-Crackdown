@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
-const dbName = 'codecrackdown_db'
+require("dotenv").config();
 
-mongoose.connect(`mongodb+srv://crackdownadmin:UOhXrVGwU7LrWY00@cluster1.u4ryb7f.mongodb.net/${dbName}`, {
+
+mongoose.connect(process.env.MONGODB_CONNECTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
