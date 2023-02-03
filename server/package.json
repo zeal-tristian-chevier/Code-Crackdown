@@ -4,6 +4,9 @@
   "description": "",
   "main": "server.js",
   "keywords": [],
+  "scripts": {
+    "start": "node server.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -19,5 +22,9 @@
     "node": "^19.6.0",
     "stream": "npm:stream-browserify",
     "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "concurrently": "^7.6.0"
   }
 }
