@@ -1,9 +1,9 @@
 const express = require('express')
 const cors = require('cors')
-const {userRouter} = require('./server/routes/user.routes')
+const {userRouter} = require('./routes/user.routes')
 const port = process.env.PORT || 8000
 
-require('./server/config/mongoose.config')
+require('./config/mongoose.config')
 
 const app = express()
 
