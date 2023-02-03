@@ -1,7 +1,7 @@
 html {
   height: 100%;
   background-size: cover;
-  background: rgb(208,176,39);
+  background: rgb(205, 175, 43);
   background: linear-gradient(200deg, rgb(16, 38, 85) 0%, rgb(205, 175, 43) 150%);
 }
 
@@ -21,4 +21,9 @@ body {
 } */
 .App {
   text-align: center;
+}
+@media screen and (max-width: 525px) {
+  html {
+    background: rgb(30, 85, 146) !important;
+  }
 }

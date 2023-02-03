@@ -21,7 +21,6 @@ const Game = () => {
 
         //create the code to be guessed
         const newCode = createCode(colors)
-        console.log(newCode)
         setCode(translateCode(newCode))
         const interval = setInterval(() => {
             setTime((prevTime) => {
