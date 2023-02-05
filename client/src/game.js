@@ -82,5 +82,8 @@ export const checkGameStatus = (guess, code) => {
 
 }
 export const calculateScore = (time, guesses) => {
-    return Math.round(1 / ((time * guesses)) * 100) * 1000
+    if((Math.round(1 / ((time * guesses)) * 1000) * 100) === 0){
+        return 1000
+    }
+    return Math.round(1 / ((time * guesses)) * 1000) * 100
 }
