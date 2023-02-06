@@ -78,7 +78,7 @@ const Menu = () => {
                                 <MenuButtonSVG />
                             </button>
                             :
-                            <button id="login" className="menu-btn" onClick={() => navigate('/login')}>
+                            <button id="login" className="menu-btn" onClick={() => navigate('/register')}>
                                 <span>LOGIN</span> 
                                 <MenuButtonSVG />
                             </button>
